@@ -23,8 +23,8 @@ In the following we explain how to replicate the attack:
  2. Navigate to the `xs-env/nexus-am/apps/` folder.
  3. Clone this repository.
  4. Enter the cloned folder and go to the spectre-v1 directory.
- 5. Run `make ARCH=riscv64-xs` to compile the workload
- 6. To run the workload use `path_to_xs-env/XiangShan/build/emu -i ./build/spectre-v1-riscv64-xs.bin  
+ 5. Run `make ARCH=riscv64-xs` to compile the workload.
+ 6. To run the workload use `path_to_xs-env/XiangShan/build/emu  --no-diff -i ./build/spectre-v1-riscv64-xs.bin`.
 ## Credits  
 - [BOOM Speculative Attacks](https://github.com/riscv-boom/boom-attacks.git): spectre-v1 attack code for the BOOM processor, which we adapted to XiangShan.
 - [PLRU-based eviction function](https://github.com/OpenXiangShan/XiangShan/issues/2534): other than the function used by the BOOM attacks and CMOs, we also tried the attack with this function.
