@@ -14,7 +14,7 @@ In the following we explain how to replicate the attack:
     1. Make sure the XiangShan folder is at either of the commits specified above (`167da6a` for V3 or `0a68ebc` for V2).
     2. When performing the make emu command use:
         - `CONFIG=MinimalConfig` for V2
-        - `CONFIG=KunminghuV2Config` for V3
+        - `CONFIG=MinimalConfig` (or `CONFIG=KunminghuV2Config` to use CMOs) for V3
       > Note: to improve simulation performance you can set `EMU_THREADS=num` to make the simulator run on `num` threads.
     3. Navigate to the `nexus-am` folder, edit the `Makefile.compile` file and remove:
         - `CC_OPT ?= -O2`
