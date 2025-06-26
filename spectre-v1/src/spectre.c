@@ -1,6 +1,6 @@
 #include <klib.h> // [1]
 #include "encoding.h"
-#include "cache.h"
+#include "cache-utils.h"
 
 #define TRAIN_TIMES 10 // Depends on your predictor
 #define ROUNDS 1 // run the train + attack sequence X amount of times (for redundancy)
