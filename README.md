@@ -8,7 +8,9 @@ We tested Spectre-v1 attack with a Flush+Reload cache side channel on the follow
 - Kunmingu: `master/167da6a`.
 
 Using the following `xs-env` commit: `d857953`
-## Replicating the attacks
+
+The folder deliverables contains the final presentation for the project and the report, where further details on the attack can be found.
+## Replicating the attack
 In the following we explain how to replicate the attack:
 1. Setup the XiangShan simulation environment documented here [XiangShan Front-end Development Environment](https://docs.xiangshan.cc/zh-cn/latest/tools/xsenv-en/) 
     1. Make sure the XiangShan folder is at either of the commits specified above (`167da6a` for V3 or `0a68ebc` for V2).
@@ -25,6 +27,9 @@ In the following we explain how to replicate the attack:
  4. Enter the cloned folder and go to the spectre-v1 directory.
  5. Run `make ARCH=riscv64-xs` to compile the workload.
  6. To run the workload use `path_to_xs-env/XiangShan/build/emu  --no-diff -i ./build/spectre-v1-riscv64-xs.bin`.
+ 
+ Note that if you want to use a different eviction function you need to comment out `flushCache()` and uncomment the `for` loop and the function you want to use inside it.
+
 ## Credits  
 - [BOOM Speculative Attacks](https://github.com/riscv-boom/boom-attacks.git): spectre-v1 attack code for the BOOM processor, which we adapted to XiangShan.
 - [PLRU-based eviction function](https://github.com/OpenXiangShan/XiangShan/issues/2534): other than the function used by the BOOM attacks and CMOs, we also tried the attack with this function.
