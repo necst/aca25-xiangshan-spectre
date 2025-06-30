@@ -1,4 +1,4 @@
-# aca25-spectre
+# Spectre on XiangShan
 This repository contains the code for the project of Advanced Computer Architectures (A.Y. 2025@Politecnico di Milano). 
 ## Intro  
 The scope of the project is to verify whether **XiangShan** (an open source RISC-V processor) was vulnerable to speculative attacks such as **Spectre**.

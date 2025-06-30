@@ -17,6 +17,28 @@
 #define OFF_MASK (~(FULL_MASK << L1_BLOCK_BITS))
 #define TAG_MASK (FULL_MASK << (L1_SET_BITS + L1_BLOCK_BITS))
 #define SET_MASK (~(TAG_MASK | OFF_MASK))
+#define C_VAL 2
+#define D_VAL 1
+#define S_VAL 10
+
+char __attribute__((aligned(4096))) buffer[4 * 1024 * 1024];
+
+static inline __attribute__((always_inline)) void maccess(void *addr) {
+  *(volatile unsigned char *)addr;
+}
+
+static void evict(void *addr) {
+  size_t start =
+      (((size_t)(buffer) >> 12) << 12) + ((size_t)addr & 0xfff);
+  #define S 14
+  for (int s = 0; s < S_VAL; s += 1) {
+    for (int d = 0; d < D_VAL; d++) {
+      for (int c = 0; c < C_VAL; c++) {
+        maccess((void *)(start + ((s + c) << S)));
+      }
+    }
+  }
+}
 
 /* ----------------------------------
  * |                  Cache address |
